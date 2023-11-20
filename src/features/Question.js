@@ -1,25 +1,43 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { Col, Row } from 'reactstrap';
+import { gameContext } from './playersState';
 import Answer from './Answer';
 
-const Question = ({ question, answer }) => {
-    const [showAnswer, setShowAnswer] = useState(false);
-    console.log('showAnswer', showAnswer);
-    console.log('question', question)
+const Question = () => {
+    const [gameState, dispatch] = useContext(gameContext);
+    console.log('index ', gameState.questionIdx);
     function handleShowAnswer() {
-        setShowAnswer(true);
+        dispatch({
+            type: 'SHOW_ANSWER'
+        });
     };
 
     useEffect(() => {
-        setShowAnswer(false);
-    },[question])
-
+        //setShowAnswer(false);
+    }, [gameState.questionIdx])
 
     return (
-        <>
-            <h4>{question}</h4>
-            <button className='btn-custom' onClick={handleShowAnswer}>Show Answer</button>
-            {showAnswer ? <Answer answer={answer} /> : null}
-        </>
+        <Row>
+            <Col className='gameboard-main rounded-4 mt-3 pt-5'>
+                <Row>
+                    <Col className='fs-4 fw-bold'>
+                        {gameState.trivia[gameState.questionIdx].question.text}
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        {!gameState.showAnswer &&
+                            <button className='btn-custom fs-5 text-white fw-bold mt-5' onClick={handleShowAnswer}>Show Answer</button>
+                        }
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        {gameState.showAnswer ? <Answer /> : null}
+                    </Col>
+                </Row>
+            </Col>
+        </Row>
     );
 };
 

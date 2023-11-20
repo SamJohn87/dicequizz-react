@@ -1,32 +1,35 @@
-import {useContext, useState } from "react";
+import { useContext } from "react";
 import { Col, Row, Container } from "reactstrap";
+import { gameContext } from "../features/playersState";
 import PlayerNameForm from "../features/PlayerNameForm";
 import PlayersList from "../features/PlayersList";
 import Dice from "../features/Dice";
-import { stateContext } from "../features/playersState";
 
-const GameBoard = ({ trivia }) => {
-    const [gameStarted, setGameStarted] = useState(false);
-    const [state, dispatch] = useContext(stateContext);
+const GameBoard = () => {
+    const [gameState, dispatch] = useContext(gameContext);
+
+    console.log(gameState);
 
     function startGame() {
-        if(state.length < 2) {
+        if (gameState.listPlayers.length < 2) {
             alert('You need at least 2 players to start the game!');
         } else {
-            setGameStarted(true);
             dispatch({
                 type: 'IS_PLAYING',
                 payload: 0
             });
-        }        
+
+            dispatch({
+                type: 'START_GAME'
+            });
+        }
     }
 
     return (
-       
         <Container fluid className='game-board'>
             <Row>
                 <Col sm={3}>
-                    <PlayersList listPlayers={state} />
+                    <PlayersList />
                 </Col>
                 <Col sm={9}>
                     <Row >
@@ -37,20 +40,20 @@ const GameBoard = ({ trivia }) => {
                     <Row>
                         <Col className='trivia-block bg-white rounded-4 m-2 p-4 text-center'>
                             <Row>
-                                <Col className="p-5">
-                                    {!gameStarted &&
-                                        <PlayerNameForm/>
+                                <Col className="p-4">
+                                    {!gameState.gameStarted &&
+                                        <PlayerNameForm />
                                     }
 
-                                    {gameStarted
-                                        && <Dice trivia={trivia} />
+                                    {gameState.gameStarted
+                                        && <Dice />
                                     }
                                 </Col>
                             </Row>
-                            {!gameStarted &&
+                            {!gameState.gameStarted &&
                                 <Row>
                                     <Col>
-                                        <button onClick={startGame} className='btn-custom'>Ready</button>
+                                        <button onClick={startGame} className='btn-custom fs-5 text-white fw-bold'>Ready</button>
                                     </Col>
                                 </Row>
                             }
@@ -63,14 +66,3 @@ const GameBoard = ({ trivia }) => {
 };
 
 export default GameBoard;
-
-/*
-- useReducer hook is used to manage the state of the component and pass state to child components.
-- useReducer takes two arguments: a reducer function (listReducer in this case) and an initial state (initialState).
-  both listReducer and initialState defined in playersState.js.
-  It returns an array with two elements:
-  state: The current state of the component, initialized with initialState(which is defined in playersState.js).
-  dispatch: A function used to dispatch actions to update the state. dispatch receives it's type specification from 
-            from the reducer function defined in playersState and it's paylload and actual action is determined by 
-            the function it is called in. In this case PlayersNameForm.
-*/

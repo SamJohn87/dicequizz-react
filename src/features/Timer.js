@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from "react";
+import { Row, Col } from "reactstrap";
+import { useContext } from "react";
+import { gameContext } from "./playersState";
 
-const Timer = ({ timerValue }) => {
-    const [secondsLeft, setSecondsLeft] = useState(timerValue);
+const Timer = () => {
+    const [secondsLeft, setSecondsLeft] = useState(0);
+    const [gameState] = useContext(gameContext);
 
     useEffect(() => {
-        if (secondsLeft === 0) return; // Stop the countdown when secondsLeft reaches 0
+        if (secondsLeft === 0) return;
 
         const timeOut = setTimeout(() => {
-            setSecondsLeft(secondsLeft - 1); // Decrement secondsLeft by 1
+            setSecondsLeft(secondsLeft - 1);
         }, 1000);
 
         return () => clearTimeout(timeOut);
 
-    }, [secondsLeft]); // Re-run the effect whenever secondsLeft changes
+    }, [secondsLeft]);
 
     useEffect(() => {
-        setSecondsLeft(timerValue);
-    }, [timerValue]); //use to re-render the Timer component when the prop value change - Timer component will not be automatically re-rendered when prop value from the Dice component change.
+        setSecondsLeft(gameState.timer);
+    }, [gameState.timer]);
 
     return (
-        <div>
-            <p>Time: {secondsLeft}</p>
-        </div>
+        <Row>
+            <Col className="fs-5 fw-bold">Timer: {secondsLeft}</Col>
+        </Row>
     );
 };
 

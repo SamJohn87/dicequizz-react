@@ -1,9 +1,11 @@
 import { Col, Row } from 'reactstrap';
+import { gameContext } from './playersState';
 import Player from './Player';
+import { useContext } from 'react';
 
-// PlayersList receives its props from the parent component GameBoard
-// Allows us to pass on state to other components by receiving listPlayers as a prop which has the value of state as defined in GameBoard.
-const PlayersList = ({ listPlayers }) => {
+const PlayersList = () => {
+    const [gameState] = useContext(gameContext);
+
     return (
         <Row>
             <Col className='player-list rounded-4 bg-white m-2'>
@@ -12,7 +14,7 @@ const PlayersList = ({ listPlayers }) => {
                         Players
                     </Col>
                 </Row>
-                {listPlayers.map((player, index) => (
+                {gameState.listPlayers.map((player, index) => (
                     <Player key={index} player={player} />
                 ))}
             </Col>

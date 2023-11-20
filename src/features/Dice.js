@@ -1,41 +1,55 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { gameContext } from "./playersState";
+import { Row, Col } from "reactstrap";
+import Die from "../components/Die";
 import Timer from "./Timer";
 import Question from "./Question";
 
-const Dice = ({ trivia }) => {
-    const [questionIdx, setTriviaQuestion] = useState(0);
-    const [dice1, setDice1] = useState(0);
-    const [dice2, setDice2] = useState(0);
-    const timerValue = (dice1 + dice2);
-    // console.log('timer', timerValue)
+const Dice = () => {
+    const [gameState, dispatch] = useContext(gameContext);
 
     const rollDice = () => {
         const roll1 = Math.floor(Math.random() * 6) + 1;
         const roll2 = Math.floor(Math.random() * 6) + 1;
-        setDice1(roll1);
-        setDice2(roll2);
 
-        if (questionIdx < trivia.length - 1) {
-            setTriviaQuestion(questionIdx + 1)
-        }
-        // console.log('trivia length ', trivia.length)
-        // console.log('question index ', questionIdx)
+        dispatch({
+            type: 'ROLL_DICE',
+            payload: [roll1, roll2]
+        });
     };
 
     return (
-        <>
-            <div>
-                <button onClick={rollDice} className='btn-custom'>Roll Dice!</button>
-            </div>
-            <div>
-                <span className={`dice dice-${dice1}`} />
-                <span className={`dice dice-${dice2}`} />
-            </div>
-            <Timer timerValue={timerValue} />
-            {Boolean(dice1) &&
-                <Question question={trivia[questionIdx].question.text} answer={trivia[questionIdx].correctAnswer} />
-            }
-        </>
+        <Row>
+            <Col>
+                <Row className='gameboard-header p-2 justify-content-around rounded-4'>
+                    <Col>
+                        {gameState.dice.length > 0 &&
+                            <Row>
+                                <Col>
+                                    <Die value={gameState.dice[1]} />
+                                </Col>
+                                <Col>
+                                    <Die value={gameState.dice[0]} />
+                                </Col>
+                            </Row>
+                        }
+                    </Col>
+                    <Col className='align-self-center'>
+                        <button onClick={rollDice} className='btn-custom fs-6 text-white fw-bold'>Roll Dice!</button>
+                    </Col>
+                    <Col className='align-self-center'>
+                        <Timer timerValue={gameState.timer} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        {gameState.dice.length > 0 &&
+                            <Question />
+                        }
+                    </Col>
+                </Row>
+            </Col>
+        </Row>
     );
 };
 
