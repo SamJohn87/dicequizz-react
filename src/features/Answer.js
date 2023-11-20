@@ -4,21 +4,20 @@ import { Row, Col } from 'reactstrap';
 
 const Answer = () => {
     const [gameState, dispatch] = useContext(gameContext);
+    //use state from context to get the id of the user currently playing
+    //player object isPlaying property is true
+    const isPlaying = gameState.listPlayers.find((player) => player.isPlaying === true).id;
+    const nextPlayerId = isPlaying + 1;
 
     function nextPlayer() {
-        //use state from context to get the id of the user currently playing
-        //player object isPlaying property is true
-        const isPlaying = gameState.listPlayers.find((player) => player.isPlaying === true).id;
-        const nextPlayer = isPlaying + 1;
-
         dispatch({
-            type: 'RESET_IS_PLAYING'
+            type: 'RESET_GAME'
         });
 
-        if(nextPlayer < gameState.listPlayers.length) {
+        if (nextPlayerId < gameState.listPlayers.length) {
             dispatch({
                 type: 'IS_PLAYING',
-                payload: nextPlayer
+                payload: nextPlayerId
             });
         } else {
             dispatch({
@@ -27,12 +26,22 @@ const Answer = () => {
             });
         }
     }
+
+    function addPoints() {
+        dispatch({
+            type: 'ADD_POINTS',
+            payload: isPlaying
+        });
+
+        nextPlayer();
+    }
+
     return (
         <Row>
             <Col>
                 <Row>
                     <Col className='pt-5'>
-                        <button className='btn-custom fs-5 text-white fw-bold'>Right, and On Time</button>{' '}
+                        <button className='btn-custom fs-5 text-white fw-bold' onClick={addPoints}>Right, and On Time</button>{' '}
                         <button className='btn-custom fs-5 text-white fw-bold' onClick={nextPlayer}>Whoops!</button>
                     </Col>
                 </Row>

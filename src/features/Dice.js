@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { gameContext } from "./playersState";
 import { Row, Col } from "reactstrap";
 import Die from "../components/Die";
@@ -7,16 +8,27 @@ import Question from "./Question";
 
 const Dice = () => {
     const [gameState, dispatch] = useContext(gameContext);
+    const [rollBtnOn, setRollBtnOn] = useState(true);
+    const navigate = useNavigate();
 
     const rollDice = () => {
         const roll1 = Math.floor(Math.random() * 6) + 1;
         const roll2 = Math.floor(Math.random() * 6) + 1;
+        setRollBtnOn(false);
 
         dispatch({
             type: 'ROLL_DICE',
             payload: [roll1, roll2]
         });
     };
+
+    useEffect(() => {
+        if (gameState.questionIdx < gameState.trivia.length - 1) {
+            setRollBtnOn(true); // display roll dice btn every time click on whoops btn which change the listPlayers property of the game state
+        } else {
+            navigate('/score');
+        }
+    }, [gameState.listPlayers])
 
     return (
         <Row>
@@ -35,7 +47,9 @@ const Dice = () => {
                         }
                     </Col>
                     <Col className='align-self-center'>
-                        <button onClick={rollDice} className='btn-custom fs-6 text-white fw-bold'>Roll Dice!</button>
+                        {rollBtnOn &&
+                            <button onClick={rollDice} className='btn-custom fs-6 text-white fw-bold'>Roll Dice!</button>
+                        }
                     </Col>
                     <Col className='align-self-center'>
                         <Timer timerValue={gameState.timer} />

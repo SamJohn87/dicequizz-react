@@ -1,20 +1,16 @@
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { Col, Row } from 'reactstrap';
 import { gameContext } from './playersState';
 import Answer from './Answer';
 
 const Question = () => {
     const [gameState, dispatch] = useContext(gameContext);
-    console.log('index ', gameState.questionIdx);
+
     function handleShowAnswer() {
         dispatch({
             type: 'SHOW_ANSWER'
         });
     };
-
-    useEffect(() => {
-        //setShowAnswer(false);
-    }, [gameState.questionIdx])
 
     return (
         <Row>

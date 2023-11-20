@@ -4,6 +4,7 @@ import { gameContext } from './playersState';
 
 const PlayerNameForm = () => {
     const [newPlayer, setNewPlayer] = useState('');
+    const [errorForm, setErrorForm] = useState('');
     const inputRegex = /^[A-Za-z]{2,10}$/;
     const [, dispatch] = useContext(gameContext);
 
@@ -11,11 +12,14 @@ const PlayerNameForm = () => {
         e.preventDefault();
 
         if (inputRegex.test(newPlayer)) {
+            setErrorForm('');
             dispatch({
                 type: 'ADD_PLAYER',
                 payload: newPlayer
             });
             setNewPlayer('');
+        } else {
+            setErrorForm('The player\'s name should have at least 2 characters!');
         }
     }
 
@@ -30,6 +34,11 @@ const PlayerNameForm = () => {
                 <Row className='playerForm p-5 rounded-4 m-3'>
                     <Col>
                         <form onSubmit={handleSubmit}>
+                            <Row>
+                                <Col className='text-danger'>
+                                    {errorForm}
+                                </Col>
+                            </Row>
                             <Row>
                                 <Col>
                                     <input

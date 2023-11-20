@@ -7,6 +7,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Footer from './components/Footer';
 import GameObjective from './pages/GameObjective';
 import GameBoard from './pages/GameBoard';
+import Score from './pages/Score';
 import './App.css';
 
 function App() {
@@ -56,13 +57,13 @@ function App() {
     <Container>
       <Row>
         <Col>
-          <Routes>
-            <Route path='/' element={<GameObjective />} />
-            <Route path='/gameboard' element={
-              <gameContext.Provider value={[gameState, dispatch]}>
-                <GameBoard />
-              </gameContext.Provider>} />
-          </Routes>
+          <gameContext.Provider value={[gameState, dispatch]}>
+            <Routes>
+              <Route path='/' element={<GameObjective />} />
+              <Route path='/score' element={<Score />} />
+              <Route path='/gameboard' element={<GameBoard />} />
+            </Routes>
+          </gameContext.Provider>
         </Col>
       </Row>
       <Row>

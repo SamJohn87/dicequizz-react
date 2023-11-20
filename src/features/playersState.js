@@ -9,6 +9,7 @@ export const initialState = {
     trivia: null,
     questionIdx: null,
     showAnswer: false,
+    points: 0,
     listPlayers: []
 };
 
@@ -42,8 +43,13 @@ export const listReducer = (state, action) => {
                 ...state,
                 gameStarted: true
             };
-        case 'RESET_IS_PLAYING':
-            return state.map((player) => ({ ...player, isPlaying: false }));
+        case 'RESET_GAME':
+            return {
+                ...state,
+                dice: [],
+                timer: 0,
+                listPlayers: state.listPlayers.map((player) => ({ ...player, isPlaying: false }))
+            }
         case 'IS_PLAYING':
             return {
                 ...state,
@@ -56,12 +62,20 @@ export const listReducer = (state, action) => {
                 ...state,
                 timer: (action.payload[0] + action.payload[1]),
                 dice: [action.payload[0], action.payload[1]],
-                questionIdx: state.questionIdx ? state.questionIdx + 1 : 0
+                questionIdx: state.questionIdx != null ? state.questionIdx + 1 : 0,
+                showAnswer: false
             };
         case 'SHOW_ANSWER':
             return {
                 ...state,
-                showAnswer: true
+                showAnswer: !state.showAnswer
+            };
+        case 'ADD_POINTS':
+            return {
+                ...state,
+                listPlayers: state.listPlayers.map((player) =>
+                    player.id === action.payload ? { ...player, points: (player.points + state.timer) } : player
+                )
             };
         default:
             return state;
