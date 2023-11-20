@@ -7,7 +7,7 @@ import Dice from "../features/Dice";
 
 const GameBoard = () => {
     const [gameState, dispatch] = useContext(gameContext);
-
+    
     function startGame() {
         if (gameState.listPlayers.length < 2) {
             alert('You need at least 2 players to start the game!');

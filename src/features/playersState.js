@@ -43,7 +43,7 @@ export const listReducer = (state, action) => {
                 ...state,
                 gameStarted: true
             };
-        case 'RESET_GAME':
+        case 'NEXT_QUESTION':
             return {
                 ...state,
                 dice: [],
@@ -77,6 +77,8 @@ export const listReducer = (state, action) => {
                     player.id === action.payload ? { ...player, points: (player.points + state.timer) } : player
                 )
             };
+        case 'RESET_GAME':
+            return initialState;
         default:
             return state;
     }

@@ -6,20 +6,22 @@ const PlayerNameForm = () => {
     const [newPlayer, setNewPlayer] = useState('');
     const [errorForm, setErrorForm] = useState('');
     const inputRegex = /^[A-Za-z]{2,10}$/;
-    const [, dispatch] = useContext(gameContext);
+    const [gameState, dispatch] = useContext(gameContext);
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (inputRegex.test(newPlayer)) {
-            setErrorForm('');
+        if (gameState.listPlayers.length >= 8) {
+            setErrorForm('You cannot have more than 8 players.');
+        } else if (!inputRegex.test(newPlayer)) {
+            setErrorForm('The player\'s name should have at least 2 letters with no special characters!');
+        } else {
             dispatch({
                 type: 'ADD_PLAYER',
                 payload: newPlayer
             });
             setNewPlayer('');
-        } else {
-            setErrorForm('The player\'s name should have at least 2 characters!');
+            setErrorForm('');
         }
     }
 

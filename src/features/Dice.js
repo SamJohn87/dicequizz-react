@@ -26,6 +26,9 @@ const Dice = () => {
         if (gameState.questionIdx < gameState.trivia.length - 1) {
             setRollBtnOn(true); // display roll dice btn every time click on whoops btn which change the listPlayers property of the game state
         } else {
+            dispatch({
+                type: 'NEXT_QUESTION'
+            });
             navigate('/score');
         }
     }, [gameState.listPlayers])

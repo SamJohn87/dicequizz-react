@@ -11,7 +11,7 @@ const Answer = () => {
 
     function nextPlayer() {
         dispatch({
-            type: 'RESET_GAME'
+            type: 'NEXT_QUESTION'
         });
 
         if (nextPlayerId < gameState.listPlayers.length) {

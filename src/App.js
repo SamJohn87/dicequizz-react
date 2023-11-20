@@ -13,8 +13,10 @@ import './App.css';
 function App() {
   const [gameState, dispatch] = useReducer(listReducer, initialState);
 
+  console.log(gameState);
+
   useEffect(() => {
-    const request = `https://the-trivia-api.com/v2/questions?categories=general_knowledge&difficulties=easy&limit=10`;
+    const request = `https://the-trivia-api.com/v2/questions?categories=general_knowledge&difficulties=easy&limit=40`;
     const fetchData = async () => {
       const response = await fetch(request);
 
@@ -38,7 +40,7 @@ function App() {
         payload: error.toString()
       });
     });
-  }, []);
+  }, [gameState.gameStarted]);
 
   if (gameState.isLoading) {
     return <h1>loading...</h1>;
@@ -60,8 +62,8 @@ function App() {
           <gameContext.Provider value={[gameState, dispatch]}>
             <Routes>
               <Route path='/' element={<GameObjective />} />
-              <Route path='/score' element={<Score />} />
               <Route path='/gameboard' element={<GameBoard />} />
+              <Route path='/score' element={<Score />} />
             </Routes>
           </gameContext.Provider>
         </Col>
