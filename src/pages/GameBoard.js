@@ -51,7 +51,7 @@ const GameBoard = () => {
                 payload: error.toString()
             });
         });
-    }, [gameState.gameStarted]);
+    }, []);
 
     if (gameState.isLoading) {
         return (

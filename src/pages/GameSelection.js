@@ -11,10 +11,10 @@ const GameSelection = () => {
 
     const checkValue = (number) => {
 
-        if (Number(number) && number <= 100) {
+        if (Number(number) && number >= 20 && number <= 100) {
             setNumValueError('');
         } else {
-            setNumValueError('Please enter a number between 1 and 100');
+            setNumValueError('Please enter a number between 20 and 100');
         }
 
         setNumQuestions(number);

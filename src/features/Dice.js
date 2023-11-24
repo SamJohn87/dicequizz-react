@@ -23,13 +23,12 @@ const Dice = () => {
     };
 
     useEffect(() => {
-        if (gameState.questionIdx < gameState.trivia.length - 1) {
-            setRollBtnOn(true); // display roll dice btn every time click on whoops btn which change the listPlayers property of the game state
-        } else {
-            dispatch({
-                type: 'NEXT_QUESTION'
-            });
-            navigate('/score');
+        if (gameState.questionIdx !== null) {
+            if (gameState.questionIdx < gameState.trivia.length - 1) {
+                setRollBtnOn(true); // display roll dice btn every time click on whoops btn which change the listPlayers property of the game state
+            } else {
+                navigate('/score');
+            }
         }
     }, [gameState.listPlayers])
 
