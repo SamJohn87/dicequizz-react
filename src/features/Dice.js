@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { gameContext } from "./playersState";
+import { gameContext } from "./gameState";
 import { Row, Col } from "reactstrap";
 import Die from "../components/Die";
 import Timer from "./Timer";

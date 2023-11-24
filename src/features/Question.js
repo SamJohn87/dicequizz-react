@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Col, Row } from 'reactstrap';
-import { gameContext } from './playersState';
+import { gameContext } from './gameState';
 import Answer from './Answer';
 
 const Question = () => {

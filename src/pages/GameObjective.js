@@ -12,7 +12,7 @@ const GameObjective = () => {
                     <p>The objective of the game is to answer trivia questions correctly and earn points.</p>
                     <p>The sum of the two dice rolled not only determines the points but also the time available to answer each question.</p>
                     <p>The player with the most points at the end wins.</p>
-                    <Link to={'gameboard'}>
+                    <Link to={'gameselection'}>
                         <button className='btn-custom fs-5 text-white fw-bold'>Let's Go!</button>
                     </Link>
                 </Col>

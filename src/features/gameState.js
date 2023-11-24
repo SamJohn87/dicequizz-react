@@ -7,6 +7,8 @@ export const initialState = {
     dice: [],
     timer: 0,
     trivia: null,
+    category: 'general_knowledge',
+    numQuestions: 50,
     questionIdx: null,
     showAnswer: false,
     points: 0,
@@ -27,6 +29,12 @@ export const listReducer = (state, action) => {
                 ...state,
                 isLoading: false,
                 errMsg: action.payload
+            };
+        case 'CHANGE_CATEGORY':
+            return {
+                ...state,
+                category: action.payload[0],
+                numQuestions: action.payload[1]
             };
         case 'ADD_PLAYER':
             return {

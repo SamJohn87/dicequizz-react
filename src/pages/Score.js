@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { gameContext } from "../features/playersState";
+import { gameContext } from "../features/gameState";
 import { Container, Row, Col } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import Player from "../features/Player";
@@ -7,14 +7,14 @@ import Player from "../features/Player";
 const Score = () => {
     const [gameState, dispatch] = useContext(gameContext);
     //sort is a mutating array method...workaround by using the spread syntax
-    const scoreDesc = [...gameState.listPlayers].sort((curScore, nextScore) => nextScore.points - curScore.points);   
+    const scoreDesc = [...gameState.listPlayers].sort((curScore, nextScore) => nextScore.points - curScore.points);
     const navigate = useNavigate();
 
     const playAgain = () => {
         dispatch({
             type: 'RESET_GAME'
         });
-        navigate('/gameboard');
+        navigate('/gameselection');
     }
 
     return (
@@ -24,8 +24,8 @@ const Score = () => {
                     Final Score
                 </Col>
             </Row>
-            <Row className="justify-content-md-center">
-                <Col md='6' className="bg-white rounded-4 m-2 p-3 text-center">
+            <Row className='justify-content-md-center'>
+                <Col md='6' className='bg-white rounded-4 m-2 p-3 text-center'>
                     {scoreDesc.map((player, index) => (
                         <Player key={index} player={player} />
                     ))}

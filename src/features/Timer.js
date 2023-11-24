@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "reactstrap";
 import { useContext } from "react";
-import { gameContext } from "./playersState";
+import { gameContext } from "./gameState";
 
 const Timer = () => {
     const [secondsLeft, setSecondsLeft] = useState(0);

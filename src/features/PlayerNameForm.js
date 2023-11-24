@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Col, Row } from 'reactstrap';
-import { gameContext } from './playersState';
+import { gameContext } from './gameState';
 
 const PlayerNameForm = () => {
     const [newPlayer, setNewPlayer] = useState('');

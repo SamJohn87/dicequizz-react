@@ -11,8 +11,8 @@ const Footer = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col className='fs-6 fst-italic'>
-                            <small>(Collaborator: <a href='https://github.com/rocksteadykirk' target='_blank' rel="noreferrer">Kirk Goulbourne</a>)</small>
+                        <Col className='fst-italic' style={{ fontSize: '8px' }}>
+                            <small>(Contributor: <a href='https://github.com/rocksteadykirk' target='_blank' rel="noreferrer">Kirk Goulbourne</a>)</small>
                         </Col>
                     </Row>
 

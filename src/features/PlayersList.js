@@ -1,5 +1,5 @@
 import { Col, Row } from 'reactstrap';
-import { gameContext } from './playersState';
+import { gameContext } from './gameState';
 import Player from './Player';
 import { useContext } from 'react';
 
