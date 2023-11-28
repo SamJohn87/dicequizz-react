@@ -8,7 +8,7 @@ import CuteLoading from "../components/Loading";
 
 const GameBoard = () => {
     const [gameState, dispatch] = useContext(gameContext);
-    console.log('test firebase');
+    console.log('test firebase testing');
 
     const startGame = () => {
         if (gameState.listPlayers.length < 2) {
