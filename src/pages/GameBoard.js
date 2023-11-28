@@ -9,8 +9,6 @@ import CuteLoading from "../components/Loading";
 const GameBoard = () => {
     const [gameState, dispatch] = useContext(gameContext);
 
-    console.log(gameState);
-
     const startGame = () => {
         if (gameState.listPlayers.length < 2) {
             alert('You need at least 2 players to start the game!');
