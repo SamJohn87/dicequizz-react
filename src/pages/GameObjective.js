@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { useSpring, animated } from "@react-spring/web";
-import { Container, Col, Row, Card, CardBody, CardImg } from "reactstrap";
+import { Link } from 'react-router-dom';
+import { useSpring, animated } from '@react-spring/web';
+import { Container, Col, Row, Card, CardBody, CardImg } from 'reactstrap';
 import diceIcon from '../assets/images/shutterstock-739407751-657fc278005ea.jpg';
 import playButton from '../assets/images/play.png';
 
@@ -8,19 +8,19 @@ const GameObjective = () => {
     const card1Animation = useSpring({
         from: { opacity: 0, },
         to: { opacity: 1 },
-        delay: 500
+        delay: 1000
     });
 
     const card2Animation = useSpring({
         from: { opacity: 0, },
         to: { opacity: 1 },
-        delay: 1000
+        delay: 1500
     });
 
     const card3Animation = useSpring({
         from: { opacity: 0, },
         to: { opacity: 1 },
-        delay: 1500
+        delay: 2000
     });
 
     const playAnimation = useSpring({
@@ -38,12 +38,12 @@ const GameObjective = () => {
             </Row>
             <Row fluid className='bg-white rounded d-flex align-items-center p-5 m-2'>
                 <Col>
-                    <Row className="d-flex align-items-center">
+                    <Row className='d-flex align-items-center'>
                         <Col>
                             <Card className='border-0'>
                                 <CardImg
                                     src={diceIcon}
-                                    alt='quiz icon'
+                                    alt='Dice Icon'
                                 />
                             </Card>
                         </Col>
@@ -82,7 +82,7 @@ const GameObjective = () => {
                                     <Card className='border-0'>
                                         <CardImg
                                             src={playButton}
-                                            alt='play button'
+                                            alt='Play Button'
                                             width='50px'
                                             height='50px'
                                         />

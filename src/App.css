@@ -22,10 +22,6 @@
   background-color: rgba(79,49,128, 0.7);
 }
 
-/* .card-objective-body {
-  height: 400px;
-} */
-
 
 .playerForm {
   border-color: #4F3180;
@@ -38,9 +34,9 @@
   height: 580px;
 }
 
-.score-board {
+/* .score-board {
   background-color: #4F3180;
-}
+} */
 
 .btn-custom {
   background-color: #9A93C6;
