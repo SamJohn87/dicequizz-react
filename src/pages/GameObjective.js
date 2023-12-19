@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web';
-import { Container, Col, Row, Card, CardBody, CardImg, CardGroup } from 'reactstrap';
+import { Container, Col, Row, Card, CardBody, CardImg, CardGroup, CardText } from 'reactstrap';
 import diceIcon from '../assets/images/shutterstock-739407751-657fc278005ea.jpg';
 import playButton from '../assets/images/play.png';
 
@@ -39,44 +39,50 @@ const GameObjective = () => {
             <Row fluid className='bg-white rounded p-5 m-3'>
                 <Col>
                     <Row>
-                        <Col>
-                            <CardGroup >
+                        <Col className='m-1'>
+                            <Card className='border-0'>
+                                <CardImg
+                                    src={diceIcon}
+                                    alt='Dice Icon'
+                                />
+                            </Card>
+                        </Col>
+                        <Col className='m-2 border border-3 shadow rounded'>
+                            <animated.div style={card1Animation}>
+                                <Card className='border-0' >
+                                    <CardBody className='p-5 fw-bold text-center fs-5'>
+                                        <CardText>
+                                            Roll the dice, answer the question correctly, and earn points.
+                                        </CardText>
+                                    </CardBody>
+                                </Card>
+                            </animated.div>
+                        </Col>
+                        <Col className='m-2 border border-3 shadow rounded'>
+                            <animated.div style={card2Animation}>
                                 <Card className='border-0'>
-                                    <CardImg
-                                        src={diceIcon}
-                                        alt='Dice Icon'
-                                    />
-                                </Card>
-                                {/* <animated.div style={card1Animation}> */}
-                                <Card className='border border-3 shadow-lg' >
-                                    <CardBody className='p-5 fw-bold text-center fs-5 bg-light'>
-                                        Roll the dice, answer the question correctly, and earn points.
+                                    <CardBody className='p-5 fw-bold text-center fs-5' >
+                                        <CardText>
+                                            The sum of the two dice rolled not only determines the points but also the time available to answer each question.
+                                        </CardText>
                                     </CardBody>
                                 </Card>
-                                {/* </animated.div> */}
-
-                                {/* <animated.div style={card2Animation}> */}
-                                <Card className='border border-3 shadow-lg'>
-                                    <CardBody className='p-5 fw-bold text-center fs-5 bg-light' >
-                                        The sum of the two dice rolled not only determines the points but also the time available to answer each question.
+                            </animated.div>
+                        </Col>
+                        <Col md className='m-2 border border-3 shadow rounded'>
+                            <animated.div style={card3Animation}>
+                                <Card className='border-0'>
+                                    <CardBody className='p-5 fw-bold text-center fs-5'>
+                                        <CardText>
+                                            The player with the most points at the end wins.
+                                        </CardText>
                                     </CardBody>
                                 </Card>
-                                {/* </animated.div> */}
-
-                                {/* <animated.div style={card3Animation}> */}
-                                <Card className='border border-3 shadow-lg '>
-                                    <CardBody className='p-5 fw-bold text-center fs-5 bg-light'>
-                                        The player with the most points at the end wins.
-                                    </CardBody>
-                                </Card>
-                                {/* </animated.div> */}
-
-                            </CardGroup>
-
+                            </animated.div>
                         </Col>
                     </Row>
                     <Row>
-                        <Col className='d-flex flex-row-reverse'>
+                        <Col className='d-flex flex-row-reverse mt-4'>
                             <Link to={'gameselection'}>
                                 <animated.div style={playAnimation}>
                                     <Card className='border-0'>
