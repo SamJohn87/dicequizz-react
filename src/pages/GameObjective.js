@@ -34,9 +34,9 @@ const GameObjective = () => {
     return (
         <Container fluid>
             <Row>
-                <Col className='theme rounded-4 text-center text-white fs-1 m-3 p-3 fw-bold shadow-lg'>Welcome to DiceQuizz Trivia</Col>
+                <Col className='text-center text-white fs-1 p-3 fw-bold shadow-lg'>Welcome to DiceQuizz Trivia</Col>
             </Row>
-            <Row fluid className='bg-white rounded d-flex align-items-center p-5 m-2'>
+            <Row fluid className='bg-white rounded d-flex align-items-center p-5 m-3'>
                 <Col>
                     <Row className='d-flex align-items-center'>
                         <Col>

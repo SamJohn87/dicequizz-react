@@ -5,6 +5,7 @@ import PlayerNameForm from '../features/PlayerNameForm';
 import PlayersList from '../features/PlayersList';
 import Dice from '../features/Dice';
 import CuteLoading from '../components/Loading';
+import readyImg from '../assets/images/button_ready.png';
 
 const GameBoard = () => {
     const [gameState, dispatch] = useContext(gameContext);
@@ -76,21 +77,19 @@ const GameBoard = () => {
     }
 
     return (
-        <Container fluid className='game-board'>
-            <Row>
+        <Container fluid>
+            <Row style={{ height: '600px' }}>
                 <Col sm={3}>
                     <PlayersList />
                 </Col>
-                <Col sm={9}>
+                <Col sm={9} >
                     <Row >
-                        <Col className='fw-bold text-white m-4 fs-1 text-center'>
+                        <Col className='fw-bold text-white fs-1 p-4 text-center col-12'>
                             DiceQuizz Trivia
                         </Col>
-                    </Row>
-                    <Row>
-                        <Col className='trivia-block bg-white rounded-4 m-2 p-4 text-center'>
+                        <Col className='bg-white rounded text-center me-3'>
                             <Row>
-                                <Col className='p-4'>
+                                <Col sm={12}>
                                     {!gameState.gameStarted &&
                                         <PlayerNameForm />
                                     }
@@ -99,14 +98,16 @@ const GameBoard = () => {
                                         && <Dice />
                                     }
                                 </Col>
-                            </Row>
-                            {!gameState.gameStarted &&
-                                <Row>
+                                {/* {!gameState.gameStarted &&
                                     <Col>
-                                        <button onClick={startGame} className='btn-custom fs-5 text-white fw-bold'>Ready</button>
+                                        {/* <button onClick={startGame} className='btn-custom fs-5 text-white fw-bold'>Ready</button> *}
+                                        <img
+                                            src={readyImg}
+                                            alt='Ready To Play'
+                                        />
                                     </Col>
-                                </Row>
-                            }
+                                } */}
+                            </Row>
                         </Col>
                     </Row>
                 </Col>

@@ -119,7 +119,7 @@ const GameSelection = () => {
                                             <img
                                                 src={imgGeneralKnowledge}
                                                 alt='General Knowledge'
-                                                width='50%'
+                                                style={{maxWidth: '55%'}}
                                                 onClick={() => selectSettings('general_knowledge')}
                                             />
                                         </animated.div>
@@ -131,7 +131,7 @@ const GameSelection = () => {
                                             <img
                                                 src={imgMusic}
                                                 alt='Music'
-                                                width='50%'
+                                                style={{maxWidth: '55%'}}
                                                 onClick={() => selectSettings('music')}
                                             />
                                         </animated.div>
@@ -143,7 +143,7 @@ const GameSelection = () => {
                                             <img
                                                 src={imgHistory}
                                                 alt='History'
-                                                width='50%'
+                                                style={{maxWidth: '55%'}}
                                                 onClick={() => selectSettings('history')}
                                             />
                                         </animated.div>
@@ -155,7 +155,7 @@ const GameSelection = () => {
                                             <img
                                                 src={imgGeography}
                                                 alt='Geography'
-                                                width='50%'
+                                                style={{maxWidth: '55%'}}
                                                 onClick={() => selectSettings('geography')}
                                             />
                                         </animated.div>
@@ -167,7 +167,7 @@ const GameSelection = () => {
                                             <img
                                                 src={imgScience}
                                                 alt='Science'
-                                                width='50%'
+                                                style={{maxWidth: '55%'}}
                                                 onClick={() => selectSettings('science')}
                                             />
                                         </animated.div>

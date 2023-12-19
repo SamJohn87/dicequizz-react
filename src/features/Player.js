@@ -1,4 +1,5 @@
 import { Col, Row } from "reactstrap";
+import { useSpring, animated } from "@react-spring/web";
 
 const Player = ({ player }) => {
     //set player box style based on who's playing
@@ -6,9 +7,15 @@ const Player = ({ player }) => {
     const textColor = player.isPlaying ? 'text-white' : '';
     const pointsStyle = player.isPlaying ? 'text-white' : 'points-style';
 
+    const playerAnimation = useSpring({
+        from: { translateX: '50px', },
+        to: { translateX: '0px' },
+    });
+
     return (
+        <animated.div style={playerAnimation}>
         <Row>
-            <Col className={`${bgColor} player-details m-1 p-2 h6`}>
+            <Col className={`${bgColor} player-details p-2 h6 shadow-lg mx-3`}>
                 <Row>
                     <Col className={textColor}>{player.name}</Col>
                 </Row>
@@ -17,6 +24,7 @@ const Player = ({ player }) => {
                 </Row>
             </Col>
         </Row>
+        </animated.div>
     );
 };
 

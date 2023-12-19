@@ -18,47 +18,10 @@
   color: #4F3180;
 }
 
-.theme {
-  background-color: rgba(79,49,128, 0.7);
-}
-
-
-.playerForm {
-  border-color: #4F3180;
-  border-width: thin;
-  border-style: solid;
-}
-
-/* .game-board {
-  background-color: #4F3180;
-  height: 580px;
-} */
-
-/* .score-board {
-  background-color: #4F3180;
-} */
-
-.btn-custom {
-  background-color: #9A93C6;
-  border-color: #9A93C6;
-  cursor: pointer;
-}
-
-.btn-custom:active {
-  background-color: #4F3180;
-  border-color: #4F3180;
-}
-
-.player-list {
-  border-color: #4F3180;
-  border-style: solid;
-  height: 565px;
-}
-
 .player-details {
   border-color: #4F3180;
-  border-style: solid;
-  border-width: thin;
+  border-style: outset;
+  border-width: 2px;
   border-radius: 10px;
   font-weight: bold;
 }
@@ -69,12 +32,6 @@
 
 .isplaying-style {
   background-color: #9A93C6;
-}
-
-.trivia-block {
-  height: 455px;
-  border-color: #4F3180;
-  border-style: solid;
 }
 
 .score-block {
