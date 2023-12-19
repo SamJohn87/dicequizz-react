@@ -1,14 +1,22 @@
 import { useContext, useEffect } from 'react';
 import { Col, Row, Container } from 'reactstrap';
 import { gameContext } from '../features/gameState';
+import { useSpring, animated } from '@react-spring/web';
 import PlayerNameForm from '../features/PlayerNameForm';
 import PlayersList from '../features/PlayersList';
 import Dice from '../features/Dice';
 import CuteLoading from '../components/Loading';
-import readyImg from '../assets/images/button_ready.png';
+import readyImg from '../assets/images/shutterstock_2350330561.png';
 
 const GameBoard = () => {
     const [gameState, dispatch] = useContext(gameContext);
+
+    const readyBtnAnimation = useSpring({
+        from: { translateX: '-2000px', rotate: '360deg' },
+        to: { translateX: '0px', rotate: '0deg' },
+        config: { duration: 2000},
+        delay: 1000
+    });
 
     const startGame = () => {
         if (gameState.listPlayers.length < 2) {
@@ -98,15 +106,18 @@ const GameBoard = () => {
                                         && <Dice />
                                     }
                                 </Col>
-                                {/* {!gameState.gameStarted &&
-                                    <Col>
-                                        {/* <button onClick={startGame} className='btn-custom fs-5 text-white fw-bold'>Ready</button> *}
-                                        <img
-                                            src={readyImg}
-                                            alt='Ready To Play'
-                                        />
+                                {!gameState.gameStarted &&
+                                    <Col className='d-flex flex-row-reverse me-5'>
+                                        <animated.div style={readyBtnAnimation}>
+                                            <img
+                                                src={readyImg}
+                                                width='100px'
+                                                alt='Ready To Play'
+                                                onClick={startGame}
+                                            />
+                                        </animated.div>
                                     </Col>
-                                } */}
+                                }
                             </Row>
                         </Col>
                     </Row>

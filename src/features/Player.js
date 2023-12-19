@@ -8,8 +8,8 @@ const Player = ({ player }) => {
     const pointsStyle = player.isPlaying ? 'text-white' : 'points-style';
 
     const playerAnimation = useSpring({
-        from: { translateX: '50px', },
-        to: { translateX: '0px' },
+        from: { translateX: '50px' },
+        to: { translateX: '0px' }
     });
 
     return (
