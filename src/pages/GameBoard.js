@@ -92,7 +92,7 @@ const GameBoard = () => {
                 </Col>
                 <Col sm={9} >
                     <Row >
-                        <Col className='fw-bold text-white fs-1 p-4 text-center col-12'>
+                        <Col className='fw-bold text-white fs-1 p-3 text-center col-12'>
                             DiceQuizz Trivia
                         </Col>
                         <Col className='bg-white rounded text-center me-3'>

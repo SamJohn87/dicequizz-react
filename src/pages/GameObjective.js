@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web';
-import { Container, Col, Row, Card, CardBody, CardImg } from 'reactstrap';
+import { Container, Col, Row, Card, CardBody, CardImg, CardGroup } from 'reactstrap';
 import diceIcon from '../assets/images/shutterstock-739407751-657fc278005ea.jpg';
 import playButton from '../assets/images/play.png';
 
@@ -36,43 +36,43 @@ const GameObjective = () => {
             <Row>
                 <Col className='text-center text-white fs-1 p-3 fw-bold shadow-lg'>Welcome to DiceQuizz Trivia</Col>
             </Row>
-            <Row fluid className='bg-white rounded d-flex align-items-center p-5 m-3'>
+            <Row fluid className='bg-white rounded p-5 m-3'>
                 <Col>
-                    <Row className='d-flex align-items-center'>
+                    <Row>
                         <Col>
-                            <Card className='border-0'>
-                                <CardImg
-                                    src={diceIcon}
-                                    alt='Dice Icon'
-                                />
-                            </Card>
-                        </Col>
-                        <Col className='m-2'>
-                            <animated.div style={card1Animation}>
-                                <Card className='border border-3 shadow-lg h-50' >
+                            <CardGroup >
+                                <Card className='border-0'>
+                                    <CardImg
+                                        src={diceIcon}
+                                        alt='Dice Icon'
+                                    />
+                                </Card>
+                                {/* <animated.div style={card1Animation}> */}
+                                <Card className='border border-3 shadow-lg' >
                                     <CardBody className='p-5 fw-bold text-center fs-5 bg-light'>
                                         Roll the dice, answer the question correctly, and earn points.
                                     </CardBody>
                                 </Card>
-                            </animated.div>
-                        </Col>
-                        <Col className='m-2'>
-                            <animated.div style={card2Animation}>
-                                <Card className='border border-3 shadow-lg h-50'>
+                                {/* </animated.div> */}
+
+                                {/* <animated.div style={card2Animation}> */}
+                                <Card className='border border-3 shadow-lg'>
                                     <CardBody className='p-5 fw-bold text-center fs-5 bg-light' >
                                         The sum of the two dice rolled not only determines the points but also the time available to answer each question.
                                     </CardBody>
                                 </Card>
-                            </animated.div>
-                        </Col>
-                        <Col className='m-2'>
-                            <animated.div style={card3Animation}>
-                                <Card className='border border-3 shadow-lg h-50'>
+                                {/* </animated.div> */}
+
+                                {/* <animated.div style={card3Animation}> */}
+                                <Card className='border border-3 shadow-lg '>
                                     <CardBody className='p-5 fw-bold text-center fs-5 bg-light'>
                                         The player with the most points at the end wins.
                                     </CardBody>
                                 </Card>
-                            </animated.div>
+                                {/* </animated.div> */}
+
+                            </CardGroup>
+
                         </Col>
                     </Row>
                     <Row>
