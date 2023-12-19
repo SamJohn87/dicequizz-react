@@ -1,10 +1,10 @@
-import { useContext, useEffect } from "react";
-import { Col, Row, Container } from "reactstrap";
-import { gameContext } from "../features/gameState";
-import PlayerNameForm from "../features/PlayerNameForm";
-import PlayersList from "../features/PlayersList";
-import Dice from "../features/Dice";
-import CuteLoading from "../components/Loading";
+import { useContext, useEffect } from 'react';
+import { Col, Row, Container } from 'reactstrap';
+import { gameContext } from '../features/gameState';
+import PlayerNameForm from '../features/PlayerNameForm';
+import PlayersList from '../features/PlayersList';
+import Dice from '../features/Dice';
+import CuteLoading from '../components/Loading';
 
 const GameBoard = () => {
     const [gameState, dispatch] = useContext(gameContext);
@@ -38,7 +38,7 @@ const GameBoard = () => {
             setTimeout(() => {
                 dispatch({
                     type: 'SET_GAME',
-                    payload: results.filter((result) => !result.question.text.toLowerCase().includes("which"))
+                    payload: results.filter((result) => !result.question.text.toLowerCase().includes('which'))
                 });
             }, 1000);
         };
@@ -53,9 +53,16 @@ const GameBoard = () => {
 
     if (gameState.isLoading) {
         return (
-            <div className="d-flex align-items-center justify-content-center game-board">
-                <CuteLoading type={'spokes'} color={'white'} />
-            </div>
+            <Container>
+                <Row className='bg-white rounded rounded-4 m-5 p-5'>
+                    <Col className='d-flex justify-content-center col-12'>
+                        <CuteLoading type={'spinningBubbles'} color={'#4F3180'} />
+                    </Col>
+                    <Col className='fs-1 mt-5 d-flex justify-content-center' style={{ color: '#4F3180' }}>
+                        Loading
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 
@@ -83,7 +90,7 @@ const GameBoard = () => {
                     <Row>
                         <Col className='trivia-block bg-white rounded-4 m-2 p-4 text-center'>
                             <Row>
-                                <Col className="p-4">
+                                <Col className='p-4'>
                                     {!gameState.gameStarted &&
                                         <PlayerNameForm />
                                     }
