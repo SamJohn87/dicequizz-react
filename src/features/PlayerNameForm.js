@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Col, Row } from 'reactstrap';
 import { gameContext } from './gameState';
+import addPlayerBtn from '../assets/images/add-player.png';
 
 const PlayerNameForm = () => {
     const [newPlayer, setNewPlayer] = useState('');
@@ -14,7 +15,7 @@ const PlayerNameForm = () => {
         if (gameState.listPlayers.length >= 8) {
             setErrorForm('You cannot have more than 8 players.');
         } else if (!inputRegex.test(newPlayer)) {
-            setErrorForm('The player\'s name should have at least 2 letters with no special characters!');
+            setErrorForm("The player's name should be between 2 and 10 letters, with no special characters.");
         } else {
             dispatch({
                 type: 'ADD_PLAYER',
@@ -26,37 +27,28 @@ const PlayerNameForm = () => {
     }
 
     return (
-        <Row>
-            <Col>
-                <Row>
-                    <Col className='h3'>
-                        Who is playing?
-                    </Col>
-                </Row>
-                <Row className='playerForm p-5 rounded-4 m-3'>
-                    <Col>
+        <Row className='justify-content-md-center' style={{ height: '450px' }}>
+            <Col className='m-4 rounded bg-light bg-opacity-15 shadow ' style={{ border: '2px dotted #9A93C6', height: '350px' }}>
+                <Row className='h3 h-100'>
+                    <Col sm={12} className='mt-auto pe-3'>Who is playing?</Col>
+                    <Col sm={12} style={{height: '40%'}}>
                         <form onSubmit={handleSubmit}>
-                            <Row>
-                                <Col className='text-danger'>
-                                    {errorForm}
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <input
-                                        type='text'
-                                        value={newPlayer}
-                                        onChange={(e) => setNewPlayer(e.target.value)}
-                                        placeholder='Enter player name'
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col className='pt-4'>
-                                    <button type='submit' className='btn-custom fs-5 text-white fw-bold'>Add</button>
-                                </Col>
-                            </Row>
-                        </form>
+                            <br />
+                            <input
+                                type='text'
+                                value={newPlayer}
+                                onChange={(e) => setNewPlayer(e.target.value)}
+                                placeholder="Enter player's name"
+                            />
+                            <button type='submit' className='border-0 bg-light'>
+                                <img 
+                                    src={addPlayerBtn}
+                                    width='50px'
+                                    alt='Add a Player'
+                                />
+                            </button>
+                        </form><br/>
+                        <div className={errorForm ? 'alert alert-danger fs-6' : ''}>{errorForm}</div>
                     </Col>
                 </Row>
             </Col>

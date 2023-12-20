@@ -5,9 +5,7 @@
 .site-footer {
   text-align: center;
   background-color: #9A93C6;
-  font-weight: 500;
-  color: white;
-  padding: 20px 0;
+
 }
 
 .site-footer a {
@@ -18,46 +16,14 @@
   color: #4F3180;
 }
 
-.theme {
-  background-color: #4F3180;
-}
-
-.playerForm {
-  border-color: #4F3180;
-  border-width: thin;
-  border-style: solid;
-}
-
-.game-board {
-  background-color:#4F3180;
-  height: 580px;
-}
-
-.score-board {
-  background-color:#4F3180;
-}
-
-.btn-custom {
-  background-color: #9A93C6;
-  border-color: #9A93C6;
-  cursor: pointer;
-}
-
 .btn-custom:active {
-  background-color: #4F3180;
-  border-color: #4F3180;
-}
-
-.player-list {
-  border-color: #4F3180;
-  border-style: solid;
-  height: 565px;
+  transform: translateY(4px);
 }
 
 .player-details {
   border-color: #4F3180;
-  border-style: solid;
-  border-width: thin;
+  border-style: outset;
+  border-width: 2px;
   border-radius: 10px;
   font-weight: bold;
 }
@@ -68,12 +34,6 @@
 
 .isplaying-style {
   background-color: #9A93C6;
-}
-
-.trivia-block {
-  height: 455px;
-  border-color: #4F3180;
-  border-style: solid;
 }
 
 .score-block {
@@ -88,52 +48,56 @@
 }
 
 .gameboard-main {
-    border: #4F3180;
-    border-width: thin;
-    border-style: solid;
-    height: 300px;
+  border: #4F3180;
+  border-width: thin;
+  border-style: solid;
+  height: 300px;
 }
 
 .face {
-	display: grid;
-	grid-template-areas:
-		"a . c"
-		"e g f"
-		"d . b";
+  display: grid;
+  grid-template-areas:
+    "a . c"
+    "e g f"
+    "d . b";
 
-	width: 50px;
-	height: 50px;
-	background-color: #e7e7e7;
-	border-radius: 5%;
+  width: 50px;
+  height: 50px;
+  background-color: #e7e7e7;
+  border-radius: 5%;
 }
 
 .pip {
-	display: block;
-	align-self: center;
-	justify-self: center;
-	width: 7px;
-	height: 7px;
-	border-radius: 50%;
-	background-color: #333;
+  display: block;
+  align-self: center;
+  justify-self: center;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #333;
 }
 
 .pip:nth-child(2) {
-	grid-area: b;
-}
-.pip:nth-child(3) {
-	grid-area: c;
-}
-.pip:nth-child(4) {
-	grid-area: d;
-}
-.pip:nth-child(5) {
-	grid-area: e;
-}
-.pip:nth-child(6) {
-	grid-area: f;
-}
-/* This selects the last pip of odd-valued dice (1, 3, 5) and positions the pip in the center */
-.pip:nth-child(odd):last-child {
-	grid-area: g;
+  grid-area: b;
 }
 
+.pip:nth-child(3) {
+  grid-area: c;
+}
+
+.pip:nth-child(4) {
+  grid-area: d;
+}
+
+.pip:nth-child(5) {
+  grid-area: e;
+}
+
+.pip:nth-child(6) {
+  grid-area: f;
+}
+
+/* This selects the last pip of odd-valued dice (1, 3, 5) and positions the pip in the center */
+.pip:nth-child(odd):last-child {
+  grid-area: g;
+}

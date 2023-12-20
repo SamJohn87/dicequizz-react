@@ -7,13 +7,11 @@ const PlayersList = () => {
     const [gameState] = useContext(gameContext);
 
     return (
-        <Row>
-            <Col className='player-list rounded-4 bg-white m-2'>
-                <Row>
-                    <Col className='text-center h2'>
-                        Players
-                    </Col>
-                </Row>
+        <Row className='rounded bg-white mx-1 mt-2 h-100'>
+            <Col sm={12} className='text-center h2 mb-3'>
+                Players
+            </Col>
+            <Col className='h-100'>
                 {gameState.listPlayers.map((player, index) => (
                     <Player key={index} player={player} />
                 ))}

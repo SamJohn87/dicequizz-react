@@ -1,13 +1,51 @@
-import { Container, Row, Col } from "reactstrap";
-import { useContext, useState } from "react";
-import { gameContext } from "../features/gameState";
-import { useNavigate } from "react-router-dom";
+import { Container, Row, Col } from 'reactstrap';
+import { useContext, useState } from 'react';
+import { gameContext } from '../features/gameState';
+import { useNavigate } from 'react-router-dom';
+import { useSpring, animated } from '@react-spring/web';
+import imgGeneralKnowledge from '../assets/images/button_general-knowledge.png';
+import imgMusic from '../assets/images/button_music.png';
+import imgHistory from '../assets/images/button_history.png';
+import imgScience from '../assets/images/button_science.png';
+import imgGeography from '../assets/images/button_geography.png';
+import firstStep from '../assets/images/first_step.png';
+import secondStep from '../assets/images/second_step.png';
 
 const GameSelection = () => {
     const [, dispatch] = useContext(gameContext);
     const [numQuestions, setNumQuestions] = useState(50);
     const [numValueError, setNumValueError] = useState('');
     const navigate = useNavigate();
+
+    const general_knowledgeAnimation = useSpring({
+        from: { scale: 0, },
+        to: { scale: 1 },
+        delay: 500
+    });
+
+    const musicAnimation = useSpring({
+        from: { scale: 0, },
+        to: { scale: 1 },
+        delay: 1000
+    });
+
+    const historyAnimation = useSpring({
+        from: { scale: 0, },
+        to: { scale: 1 },
+        delay: 1500
+    });
+
+    const geographyAnimation = useSpring({
+        from: { scale: 0, },
+        to: { scale: 1 },
+        delay: 2000
+    });
+
+    const scienceAnimation = useSpring({
+        from: { scale: 0, },
+        to: { scale: 1 },
+        delay: 2500
+    });
 
     const checkValue = (number) => {
 
@@ -30,45 +68,120 @@ const GameSelection = () => {
     };
 
     return (
-        <Container fluid className='score-board'>
+        <Container fluid className='bg-white rounded mt-5 pb-5 w-75 shadow-lg'>
             <Row>
-                <Col className='fw-bold text-white fs-1 text-center'>
+                <Col className='fw-bold fs-1 text-center p-2 bg-light opacity-25 rounded-4'>
                     Game Settings
                 </Col>
             </Row>
-            <Row className='justify-content-md-center'>
-                <Col md='6' className='bg-white rounded-4 m-2 p-3 text-center'>
+            <Row>
+                <Col className='m-4 rounded bg-light bg-opacity-15 shadow' style={{ border: '2px dotted #9A93C6' }}>
                     <Row>
-                        <Col className='text-danger'>{numValueError}</Col>
+                        <Col xs={2} className='p-2'>
+                            <img
+                                src={firstStep}
+                                alt='First Step'
+                            />
+                        </Col>
+                        <Col xs={10} className='p-2 fw-bold'>
+                            Maximum Questions:
+                        </Col>
                     </Row>
                     <Row>
-                        <Col className='text-end'>Maximum Questions: </Col>
-                        <Col className='text-start'>
+                        <Col className='p-5 text-center'>
+                            <span className='text-danger'>{numValueError}</span><br />
                             <input
                                 type='text'
                                 value={numQuestions}
                                 onChange={(e) => checkValue(e.target.value)}
                                 placeholder='50'
+                                style={{ width: '100px', height: '100px', fontSize: 50 }}
                             />
                         </Col>
                     </Row>
-                    <Row className='m-3 fw-bold'>
-                        <Col>Select a category</Col>
-                    </Row>
-                    <Row className='m-3'>
-                        <Col><button onClick={() => selectSettings('general_knowledge')} className='btn-custom fs-5 text-white fw-bold w-50'>General Knowledge</button></Col>
-                    </Row>
-                    <Row className='m-3'>
-                        <Col><button onClick={() => selectSettings('music')} className='btn-custom fs-5 text-white fw-bold w-50'>Music</button></Col>
-                    </Row>
-                    <Row className='m-3'>
-                        <Col><button onClick={() => selectSettings('history')} className='btn-custom fs-5 text-white fw-bold w-50'>History</button></Col>
-                    </Row>
-                    <Row className='m-3'>
-                        <Col><button onClick={() => selectSettings('geography')} className='btn-custom fs-5 text-white fw-bold w-50'>Geography</button></Col>
-                    </Row>
-                    <Row className='m-3'>
-                        <Col><button onClick={() => selectSettings('science')} className='btn-custom fs-5 text-white fw-bold w-50'>Science</button></Col>
+                </Col>
+                <Col className='m-4 rounded bg-light bg-opacity-15 shadow' style={{ border: '2px dotted #9A93C6' }}>
+                    <Row>
+                        <Col xs={2} className='p-2'>
+                            <img
+                                src={secondStep}
+                                alt='Second Step'
+                            />
+                        </Col>
+                        <Col xs={10} className='p-2 fw-bold'>
+                            Select a Category:
+                        </Col>
+                        <Col>
+                            <Row>
+                                <Col className='text-center'>
+                                    <Row className='m-3'>
+                                        <Col>
+                                            <animated.div style={general_knowledgeAnimation}>
+                                                <img
+                                                    src={imgGeneralKnowledge}
+                                                    alt='General Knowledge'
+                                                    style={{ maxWidth: '55%' }}
+                                                    role='button'
+                                                    onClick={() => selectSettings('general_knowledge')}
+                                                />
+                                            </animated.div>
+                                        </Col>
+                                    </Row>
+                                    <Row className='m-3'>
+                                        <Col>
+                                            <animated.div style={musicAnimation}>
+                                                <img
+                                                    src={imgMusic}
+                                                    alt='Music'
+                                                    style={{ maxWidth: '55%' }}
+                                                    role='button'
+                                                    onClick={() => selectSettings('music')}
+                                                />
+                                            </animated.div>
+                                        </Col>
+                                    </Row>
+                                    <Row className='m-3'>
+                                        <Col>
+                                            <animated.div style={historyAnimation}>
+                                                <img
+                                                    src={imgHistory}
+                                                    alt='History'
+                                                    style={{ maxWidth: '55%' }}
+                                                    role='button'
+                                                    onClick={() => selectSettings('history')}
+                                                />
+                                            </animated.div>
+                                        </Col>
+                                    </Row>
+                                    <Row className='m-3'>
+                                        <Col>
+                                            <animated.div style={geographyAnimation}>
+                                                <img
+                                                    src={imgGeography}
+                                                    alt='Geography'
+                                                    style={{ maxWidth: '55%' }}
+                                                    role='button'
+                                                    onClick={() => selectSettings('geography')}
+                                                />
+                                            </animated.div>
+                                        </Col>
+                                    </Row>
+                                    <Row className='m-3'>
+                                        <Col>
+                                            <animated.div style={scienceAnimation}>
+                                                <img
+                                                    src={imgScience}
+                                                    alt='Science'
+                                                    style={{ maxWidth: '55%' }}
+                                                    role='button'
+                                                    onClick={() => selectSettings('science')}
+                                                />
+                                            </animated.div>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                        </Col>
                     </Row>
                 </Col>
             </Row>

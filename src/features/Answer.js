@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { gameContext } from './gameState';
 import { Row, Col } from 'reactstrap';
+import whoopsBtn from '../assets/images/button_whoops.png';
+import OnTimeBtn from '../assets/images/button_right-and-on-time.png';
 
 const Answer = () => {
     const [gameState, dispatch] = useContext(gameContext);
@@ -40,9 +42,22 @@ const Answer = () => {
         <Row>
             <Col>
                 <Row>
-                    <Col className='pt-5'>
-                        <button className='btn-custom fs-5 text-white fw-bold' onClick={addPoints}>Right, and On Time</button>{' '}
-                        <button className='btn-custom fs-5 text-white fw-bold' onClick={nextPlayer}>Whoops!</button>
+                    <Col className='pt-1'>
+                        <img
+                            src={OnTimeBtn}
+                            alt='Answered Correctly On Time'
+                            role='button'
+                            onClick={addPoints}
+                            className='btn-custom'
+                        />
+                        {' '}
+                        <img
+                            src={whoopsBtn}
+                            alt='Wrong Answer or Not On Time'
+                            role='button'
+                            onClick={nextPlayer}
+                            className='btn-custom'
+                        />
                     </Col>
                 </Row>
                 <Row>
