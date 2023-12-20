@@ -38,7 +38,7 @@ const Dice = () => {
     return (
         <Row>
             <Col>
-                <Row className='gameboard-header p-2 justify-content-around rounded-4'>
+                <Row /* className='gameboard-header p-2 justify-content-around rounded-4' */>
                     <Col>
                         {gameState.dice.length > 0 &&
                             <Row>

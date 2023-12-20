@@ -1,5 +1,5 @@
-import { useContext, useEffect } from 'react';
-import { Col, Row, Container } from 'reactstrap';
+import { useContext, useEffect, useState } from 'react';
+import { Col, Row, Container, Modal, ModalBody, ModalFooter, Button, ModalHeader } from 'reactstrap';
 import { gameContext } from '../features/gameState';
 import { useSpring, animated } from '@react-spring/web';
 import PlayerNameForm from '../features/PlayerNameForm';
@@ -10,17 +10,18 @@ import readyImg from '../assets/images/shutterstock_2350330561.png';
 
 const GameBoard = () => {
     const [gameState, dispatch] = useContext(gameContext);
+    const [modal, setModal] = useState(false);
 
     const readyBtnAnimation = useSpring({
         from: { translateX: '-2000px', rotate: '360deg' },
         to: { translateX: '0px', rotate: '0deg' },
-        config: { duration: 2000},
+        config: { duration: 2000 },
         delay: 1000
     });
 
     const startGame = () => {
         if (gameState.listPlayers.length < 2) {
-            alert('You need at least 2 players to start the game!');
+            setModal(true);
         } else {
             dispatch({
                 type: 'IS_PLAYING',
@@ -31,6 +32,10 @@ const GameBoard = () => {
                 type: 'START_GAME'
             });
         }
+    };
+
+    const toggle = () => {
+        setModal(!modal);
     };
 
     useEffect(() => {
@@ -86,6 +91,17 @@ const GameBoard = () => {
 
     return (
         <Container fluid>
+            <Modal isOpen={modal}>
+                <ModalHeader>
+                    Add More Players!
+                </ModalHeader>
+                <ModalBody>
+                    You need at least 2 players to start the game.
+                </ModalBody>
+                <ModalFooter>
+                    <Button onClick={toggle}>Close</Button>
+                </ModalFooter>
+            </Modal>
             <Row style={{ height: '600px' }}>
                 <Col sm={3}>
                     <PlayersList />
