@@ -8,6 +8,7 @@ import GameObjective from './pages/GameObjective';
 import GameBoard from './pages/GameBoard';
 import GameSelection from './pages/GameSelection';
 import Score from './pages/Score';
+import Credits from './pages/Credits';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/gameselection' element={<GameSelection />} />
           <Route path='/gameboard' element={<GameBoard />} />
           <Route path='/score' element={<Score />} />
+          <Route path='/credits' element={<Credits />} />
         </Routes>
       </gameContext.Provider>
       <Footer />

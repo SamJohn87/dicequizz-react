@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web';
-import { Container, Col, Row, Card, CardBody, CardImg, CardGroup, CardText } from 'reactstrap';
+import { Container, Col, Row, Card, CardBody, CardImg, CardText } from 'reactstrap';
 import diceIcon from '../assets/images/shutterstock-739407751-657fc278005ea.jpg';
 import playButton from '../assets/images/play.png';
 
