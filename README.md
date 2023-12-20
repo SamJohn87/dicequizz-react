@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Where to play?
 
-[https://dicequizztrivia.web.app/](https://dicequizztrivia.web.app/).
+[https://dicequizztrivia.web.app/](https://dicequizztrivia.web.app/)
 
 ## About Me?
 
