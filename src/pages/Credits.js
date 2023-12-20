@@ -23,7 +23,7 @@ const Credits = () => {
         {
             src: '/flaticon_presentation.png',
             altText: 'FlatIcon',
-            caption: 'FlatIcon',
+            caption: '',
             link: 'https://www.flaticon.com/',
             key: 1
         },
@@ -44,9 +44,16 @@ const Credits = () => {
         {
             src: '/tinyimg.jpg',
             altText: 'Tiny Img',
-            caption: 'Tiny Img - Image Compressor',
+            caption: '',
             link: 'https://tiny-img.com/image-compressor/',
             key: 4
+        },
+        {
+            src: '/shutterstock_2355103537.jpg',
+            altText: 'Unsplash',
+            caption: '',
+            link: 'https://unsplash.com/',
+            key: 5
         }
     ];
 

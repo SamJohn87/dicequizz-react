@@ -9,6 +9,7 @@ import GameBoard from './pages/GameBoard';
 import GameSelection from './pages/GameSelection';
 import Score from './pages/Score';
 import Credits from './pages/Credits';
+import PageNotFound from './pages/PageNotFound';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/gameboard' element={<GameBoard />} />
           <Route path='/score' element={<Score />} />
           <Route path='/credits' element={<Credits />} />
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
       </gameContext.Provider>
       <Footer />
