@@ -119,7 +119,8 @@ const Credits = () => {
                 </Col>
             </Row>
             <Row>
-                <Col className='fs-1 text-center fw-bold pt-2' style={{ color: '#4F3180' }}>Credits</Col>
+                <Col sm={12} className='fs-1 text-center fw-bold pt-2' style={{ color: '#4F3180' }}>Credits</Col>
+                <Col>Backgound image by <a href='https://unsplash.com/photos/a-purple-wall-with-a-clock-on-it-rKZ3-KUrWmU' target='_blank' rel='noreferrer'>Tofan Teodor</a>.</Col>
             </Row>
         </Container>
     )

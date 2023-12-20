@@ -13,6 +13,9 @@ const PageNotFound = () => {
                     />
                 </Col>
             </Row>
+            <Row>
+                <Col className='small'>Image by <a href='https://www.linkedin.com/in/leedsn/' target='_blank' rel='noreferrer'>Kostiantyn Li</a>.</Col>
+            </Row>
         </Container>
     )
 };
