@@ -1,16 +1,30 @@
-import React from "react";
 
-const Pip = () => <span className="pip" />;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as FaIcon from '@fortawesome/free-solid-svg-icons';
+import '../styles/Die.css';
 
-const Face = ({ children }) => <div className="face">{children}</div>;
+const Die = ({ face, rolling }) => {
 
-const Die = ({ value }) => {
-	let pips = Number.isInteger(value)
-		? Array(value)
-				.fill(0)
-				.map((_, i) => <Pip key={i} />)
-		: null;
-	return <Face>{pips}</Face>;
-};
+	switch (face) {
+		case 1:
+			return <FontAwesomeIcon icon={FaIcon.faDiceOne} className={`Die  
+			${rolling && 'Die-shaking'}`} />;
+		case 2:
+			return <FontAwesomeIcon icon={FaIcon.faDiceTwo} className={`Die  
+			${rolling && 'Die-shaking'}`} />;
+		case 3:
+			return <FontAwesomeIcon icon={FaIcon.faDiceThree} className={`Die  
+			${rolling && 'Die-shaking'}`} />;
+		case 4:
+			return <FontAwesomeIcon icon={FaIcon.faDiceFour} className={`Die  
+			${rolling && 'Die-shaking'}`} />;
+		case 5:
+			return <FontAwesomeIcon icon={FaIcon.faDiceFive} className={`Die  
+			${rolling && 'Die-shaking'}`} />;
+		default:
+			return <FontAwesomeIcon icon={FaIcon.faDiceSix} className={`Die  
+			${rolling && 'Die-shaking'}`} />;
+	}
+}
 
 export default Die;

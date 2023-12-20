@@ -5,20 +5,28 @@ import { Row, Col } from "reactstrap";
 import Die from "../components/Die";
 import Timer from "./Timer";
 import Question from "./Question";
+import rollDiceBtn from '../assets/images/button_roll-dice.png';
 
 const Dice = () => {
     const [gameState, dispatch] = useContext(gameContext);
     const [rollBtnOn, setRollBtnOn] = useState(true);
+    const [rolling, setRolling] = useState(false)
     const navigate = useNavigate();
 
     const rollDice = () => {
-        const roll1 = Math.floor(Math.random() * 6) + 1;
-        const roll2 = Math.floor(Math.random() * 6) + 1;
+        const face1 = Math.floor(Math.random() * 6) + 1;
+        const face2 = Math.floor(Math.random() * 6) + 1;
         setRollBtnOn(false);
+        setRolling(true);
+
+        setTimeout(() => {
+            // Set rolling to false again when time over 
+            setRolling(false);
+        }, 1000)
 
         dispatch({
             type: 'ROLL_DICE',
-            payload: [roll1, roll2]
+            payload: [face1, face2]
         });
     };
 
@@ -29,7 +37,7 @@ const Dice = () => {
             } else {
                 dispatch({
                     type: 'NEXT_QUESTION'
-                });        
+                });
                 navigate('/score');
             }
         }
@@ -37,34 +45,39 @@ const Dice = () => {
 
     return (
         <Row className='bg-white rounded' style={{ height: '520px' }}>
-            <Col sm={4} className="border border-2" style={{ height: '10%' }}>
-                Dice
+            <Col sm={4} style={{ height: '10%' }}>
+                {gameState.dice.length > 0 &&
+                    <Row className='mt-2 ms-2'>
+                        <Col xs={6}>
+                            <Die face={gameState.dice[0]} rolling={rolling} />
+                        </Col>
+                        <Col>
+                            <Die face={gameState.dice[1]} rolling={rolling} />
+                        </Col>
+                    </Row>
+                }
             </Col>
-            <Col sm={4} className="border border-2"  style={{ height: '10%' }}>
-            Roll
+            <Col sm={4} className='mt-3' style={{ height: '10%' }}>
+                {/* {rollBtnOn && */}
+                <img
+                    src={rollDiceBtn}
+                    role='button'
+                    width='50%'
+                    onClick={rollDice}
+                    className='roll-btn'
+                />
+                {/* } */}
             </Col>
-            <Col sm={4} className="border border-2"  style={{ height: '10%' }}>
-            Timer
+            <Col sm={4} className='align-self-center'>
+                <Timer timerValue={gameState.timer} />
             </Col>
             <Col sm={12} className="border border-2">
-                Question<br></br>dfsf
-                Question<br></br>dfsf
-
-                Question<br></br>dfsf
-
-                Question<br></br>dfsfQuestion<br></br>dfsf
-                Question<br></br>dfsf
-
-                Question<br></br>dfsf
-                Question<br></br>dfsf
-                Question<br></br>dfsf
-
-                Question<br></br>dfsf
-                Question<br></br>dfsf
-                Question<br></br>dfsf
+                {gameState.dice.length > 0 &&
+                    <Question />
+                }
             </Col>
             <Col>
-{/*                 <Row>
+                {/*                 <Row>
                     <Col>
                         {gameState.dice.length > 0 &&
                             <Row>
@@ -88,9 +101,7 @@ const Dice = () => {
                 </Row>
                 <Row>
                     <Col>
-                        {gameState.dice.length > 0 &&
-                            <Question />
-                        }
+                       
                     </Col>
                 </Row> */}
             </Col>

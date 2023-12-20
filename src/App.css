@@ -16,6 +16,10 @@
   color: #4F3180;
 }
 
+.roll-btn:active {
+  transform: translateY(4px);
+}
+
 .player-details {
   border-color: #4F3180;
   border-style: outset;
