@@ -16,7 +16,7 @@
   color: #4F3180;
 }
 
-.roll-btn:active {
+.btn-custom:active {
   transform: translateY(4px);
 }
 

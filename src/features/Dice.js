@@ -44,7 +44,7 @@ const Dice = () => {
     }, [gameState.listPlayers])
 
     return (
-        <Row className='bg-white rounded' style={{ height: '520px' }}>
+        <Row className='bg-white rounded' style={{ height: '523px' }}>
             <Col sm={4} style={{ height: '10%' }}>
                 {gameState.dice.length > 0 &&
                     <Row className='mt-2 ms-2'>
@@ -58,52 +58,23 @@ const Dice = () => {
                 }
             </Col>
             <Col sm={4} className='mt-3' style={{ height: '10%' }}>
-                {/* {rollBtnOn && */}
+                {rollBtnOn &&
                 <img
                     src={rollDiceBtn}
                     role='button'
                     width='50%'
                     onClick={rollDice}
-                    className='roll-btn'
+                    className='btn-custom'
                 />
-                {/* } */}
+                } 
             </Col>
-            <Col sm={4} className='align-self-center'>
+            <Col sm={4} className='align-self-center mt-4'>
                 <Timer timerValue={gameState.timer} />
             </Col>
-            <Col sm={12} className="border border-2">
+            <Col sm={12} className='h-75 mt-5'>
                 {gameState.dice.length > 0 &&
                     <Question />
                 }
-            </Col>
-            <Col>
-                {/*                 <Row>
-                    <Col>
-                        {gameState.dice.length > 0 &&
-                            <Row>
-                                <Col xs={3}>
-                                    <Die value={gameState.dice[1]} />
-                                </Col>
-                                <Col>
-                                    <Die value={gameState.dice[0]} />
-                                </Col>
-                            </Row>
-                        }
-                    </Col>
-                    <Col className='align-self-center'>
-                        {rollBtnOn &&
-                            <button onClick={rollDice} className='btn-custom fs-6 text-white fw-bold'>Roll Dice!</button>
-                        }
-                    </Col>
-                    <Col className='align-self-center'>
-                        <Timer timerValue={gameState.timer} />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                       
-                    </Col>
-                </Row> */}
             </Col>
         </Row>
     );

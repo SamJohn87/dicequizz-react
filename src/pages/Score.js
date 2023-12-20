@@ -1,8 +1,9 @@
-import { useContext } from "react";
-import { gameContext } from "../features/gameState";
-import { Container, Row, Col } from "reactstrap";
-import { useNavigate } from "react-router-dom";
-import Player from "../features/Player";
+import { useContext } from 'react';
+import { gameContext } from '../features/gameState';
+import { Container, Row, Col } from 'reactstrap';
+import { useNavigate } from 'react-router-dom';
+import Player from '../features/Player';
+import PlayAgainBtn from '../assets/images/button_play-again.png';
 
 const Score = () => {
     const [gameState, dispatch] = useContext(gameContext);
@@ -25,7 +26,7 @@ const Score = () => {
                 </Col>
             </Row>
             <Row className='justify-content-md-center'>
-                <Col md='6' className='bg-white rounded-4 m-2 p-3 text-center'>
+                <Col md='6' className='bg-white rounded m-2 p-3 text-center'>
                     {scoreDesc.map((player, index) => (
                         <Player key={index} player={player} />
                     ))}
@@ -33,7 +34,14 @@ const Score = () => {
             </Row>
             <Row>
                 <Col className='text-center m-3'>
-                    <button onClick={playAgain} className='btn-custom fs-5 text-white fw-bold'>Play Again</button>
+                    {/* <button onClick={playAgain} className='btn-custom fs-5 text-white fw-bold'>Play Again</button> */}
+                    <img
+                        src={PlayAgainBtn}
+                        alt='Play Again'
+                        role='button'
+                        onClick={playAgain}
+                        className='btn-custom'
+                    />
                 </Col>
             </Row>
         </Container>

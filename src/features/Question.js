@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Col, Row } from 'reactstrap';
 import { gameContext } from './gameState';
 import Answer from './Answer';
+import ShowAnswerBtn from '../assets/images/button_show-answer.png';
 
 const Question = () => {
     const [gameState, dispatch] = useContext(gameContext);
@@ -14,16 +15,22 @@ const Question = () => {
 
     return (
         <Row>
-            <Col className='gameboard-main rounded-4 mt-3 pt-5'>
+            <Col className='m-4 py-5 rounded bg-light shadow' style={{ border: '2px dotted #9A93C6'}}>
                 <Row>
                     <Col className='fs-4 fw-bold'>
                         {gameState.trivia[gameState.questionIdx].question.text}
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col className='mt-5'>
                         {!gameState.showAnswer &&
-                            <button className='btn-custom fs-5 text-white fw-bold mt-5' onClick={handleShowAnswer}>Show Answer</button>
+                            <img 
+                                src={ShowAnswerBtn}
+                                alt='Show Answer'
+                                role='button'
+                                onClick={handleShowAnswer}
+                                className='btn-custom'
+                            />
                         }
                     </Col>
                 </Row>
