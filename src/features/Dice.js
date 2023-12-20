@@ -36,9 +36,35 @@ const Dice = () => {
     }, [gameState.listPlayers])
 
     return (
-        <Row>
-{/*             <Col>
-                <Row /* className='gameboard-header p-2 justify-content-around rounded-4' *>
+        <Row className='bg-white rounded' style={{ height: '520px' }}>
+            <Col sm={4} className="border border-2" style={{ height: '10%' }}>
+                Dice
+            </Col>
+            <Col sm={4} className="border border-2"  style={{ height: '10%' }}>
+            Roll
+            </Col>
+            <Col sm={4} className="border border-2"  style={{ height: '10%' }}>
+            Timer
+            </Col>
+            <Col sm={12} className="border border-2">
+                Question<br></br>dfsf
+                Question<br></br>dfsf
+
+                Question<br></br>dfsf
+
+                Question<br></br>dfsfQuestion<br></br>dfsf
+                Question<br></br>dfsf
+
+                Question<br></br>dfsf
+                Question<br></br>dfsf
+                Question<br></br>dfsf
+
+                Question<br></br>dfsf
+                Question<br></br>dfsf
+                Question<br></br>dfsf
+            </Col>
+            <Col>
+{/*                 <Row>
                     <Col>
                         {gameState.dice.length > 0 &&
                             <Row>
@@ -66,8 +92,8 @@ const Dice = () => {
                             <Question />
                         }
                     </Col>
-                </Row>
-            </Col> */}
+                </Row> */}
+            </Col>
         </Row>
     );
 };
