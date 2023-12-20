@@ -113,6 +113,7 @@ const GameBoard = () => {
                                                 src={readyImg}
                                                 width='100px'
                                                 alt='Ready To Play'
+                                                role='button'
                                                 onClick={startGame}
                                             />
                                         </animated.div>

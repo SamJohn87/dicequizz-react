@@ -42,7 +42,7 @@ const Dice = () => {
                     <Col>
                         {gameState.dice.length > 0 &&
                             <Row>
-                                <Col>
+                                <Col xs={3}>
                                     <Die value={gameState.dice[1]} />
                                 </Col>
                                 <Col>

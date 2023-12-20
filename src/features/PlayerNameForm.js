@@ -29,13 +29,11 @@ const PlayerNameForm = () => {
     return (
         <Row className='justify-content-md-center'>
             <Col className='m-4 rounded bg-light bg-opacity-15 shadow ' style={{ border: '2px dotted #9A93C6', height: '350px' }}>
-                <Row className='h3 h-100 d-flex align-items-center'>
+                <Row className='h3 h-100'>
                     <Col sm={12} className='mt-auto mb-2 pe-3'>Who is playing?</Col>
-                    <Col sm={12} className='mb-auto'>
+                    <Col sm={12} style={{height: '40%'}}>
                         <form onSubmit={handleSubmit}>
-                            <span className='text-danger fs-6'>
-                                {errorForm}
-                            </span><br/>
+                            <br />
                             <input
                                 type='text'
                                 value={newPlayer}
@@ -43,12 +41,14 @@ const PlayerNameForm = () => {
                                 placeholder="Enter player's name"
                             />
                             <button type='submit' className='border-0 bg-light'>
-                                <img
+                                <img 
                                     src={addPlayerBtn}
                                     width='50px'
                                     alt='Add a Player'
-                                /></button>
-                        </form>
+                                />
+                            </button>
+                        </form><br/>
+                        <div className={errorForm ? 'alert alert-danger fs-6' : ''}>{errorForm}</div>
                     </Col>
                 </Row>
             </Col>

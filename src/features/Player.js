@@ -17,7 +17,7 @@ const Player = ({ player }) => {
         <Row>
             <Col className={`${bgColor} player-details p-2 h6 shadow-lg mx-3`}>
                 <Row>
-                    <Col className={textColor}>{player.name}</Col>
+                    <Col className={`${textColor} text-capitalize`}>{player.name}</Col>
                 </Row>
                 <Row className={`${pointsStyle} fw-bold`}>
                     <Col>{player.points} pts</Col>

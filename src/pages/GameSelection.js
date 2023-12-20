@@ -68,13 +68,13 @@ const GameSelection = () => {
     };
 
     return (
-        <Container fluid className='bg-white rounded rounded-4 mt-5 pb-5 w-75 shadow-lg'>
+        <Container fluid className='bg-white rounded mt-5 pb-5 w-75 shadow-lg'>
             <Row>
                 <Col className='fw-bold fs-1 text-center p-2 bg-light opacity-25 rounded-4'>
                     Game Settings
                 </Col>
             </Row>
-            <Row className='justify-content-md-center'>
+            <Row>
                 <Col className='m-4 rounded bg-light bg-opacity-15 shadow' style={{ border: '2px dotted #9A93C6' }}>
                     <Row>
                         <Col xs={2} className='p-2'>
@@ -111,70 +111,77 @@ const GameSelection = () => {
                         <Col xs={10} className='p-2 fw-bold'>
                             Select a Category:
                         </Col>
-                        <Row className='d-flex'>
-                            <Col className='text-center'>
-                                <Row className='m-3'>
-                                    <Col>
-                                        <animated.div style={general_knowledgeAnimation}>
-                                            <img
-                                                src={imgGeneralKnowledge}
-                                                alt='General Knowledge'
-                                                style={{maxWidth: '55%'}}
-                                                onClick={() => selectSettings('general_knowledge')}
-                                            />
-                                        </animated.div>
-                                    </Col>
-                                </Row>
-                                <Row className='m-3'>
-                                    <Col>
-                                        <animated.div style={musicAnimation}>
-                                            <img
-                                                src={imgMusic}
-                                                alt='Music'
-                                                style={{maxWidth: '55%'}}
-                                                onClick={() => selectSettings('music')}
-                                            />
-                                        </animated.div>
-                                    </Col>
-                                </Row>
-                                <Row className='m-3'>
-                                    <Col>
-                                        <animated.div style={historyAnimation}>
-                                            <img
-                                                src={imgHistory}
-                                                alt='History'
-                                                style={{maxWidth: '55%'}}
-                                                onClick={() => selectSettings('history')}
-                                            />
-                                        </animated.div>
-                                    </Col>
-                                </Row>
-                                <Row className='m-3'>
-                                    <Col>
-                                        <animated.div style={geographyAnimation}>
-                                            <img
-                                                src={imgGeography}
-                                                alt='Geography'
-                                                style={{maxWidth: '55%'}}
-                                                onClick={() => selectSettings('geography')}
-                                            />
-                                        </animated.div>
-                                    </Col>
-                                </Row>
-                                <Row className='m-3'>
-                                    <Col>
-                                        <animated.div style={scienceAnimation}>
-                                            <img
-                                                src={imgScience}
-                                                alt='Science'
-                                                style={{maxWidth: '55%'}}
-                                                onClick={() => selectSettings('science')}
-                                            />
-                                        </animated.div>
-                                    </Col>
-                                </Row>
-                            </Col>
-                        </Row>
+                        <Col>
+                            <Row>
+                                <Col className='text-center'>
+                                    <Row className='m-3'>
+                                        <Col>
+                                            <animated.div style={general_knowledgeAnimation}>
+                                                <img
+                                                    src={imgGeneralKnowledge}
+                                                    alt='General Knowledge'
+                                                    style={{ maxWidth: '55%' }}
+                                                    role='button'
+                                                    onClick={() => selectSettings('general_knowledge')}
+                                                />
+                                            </animated.div>
+                                        </Col>
+                                    </Row>
+                                    <Row className='m-3'>
+                                        <Col>
+                                            <animated.div style={musicAnimation}>
+                                                <img
+                                                    src={imgMusic}
+                                                    alt='Music'
+                                                    style={{ maxWidth: '55%' }}
+                                                    role='button'
+                                                    onClick={() => selectSettings('music')}
+                                                />
+                                            </animated.div>
+                                        </Col>
+                                    </Row>
+                                    <Row className='m-3'>
+                                        <Col>
+                                            <animated.div style={historyAnimation}>
+                                                <img
+                                                    src={imgHistory}
+                                                    alt='History'
+                                                    style={{ maxWidth: '55%' }}
+                                                    role='button'
+                                                    onClick={() => selectSettings('history')}
+                                                />
+                                            </animated.div>
+                                        </Col>
+                                    </Row>
+                                    <Row className='m-3'>
+                                        <Col>
+                                            <animated.div style={geographyAnimation}>
+                                                <img
+                                                    src={imgGeography}
+                                                    alt='Geography'
+                                                    style={{ maxWidth: '55%' }}
+                                                    role='button'
+                                                    onClick={() => selectSettings('geography')}
+                                                />
+                                            </animated.div>
+                                        </Col>
+                                    </Row>
+                                    <Row className='m-3'>
+                                        <Col>
+                                            <animated.div style={scienceAnimation}>
+                                                <img
+                                                    src={imgScience}
+                                                    alt='Science'
+                                                    style={{ maxWidth: '55%' }}
+                                                    role='button'
+                                                    onClick={() => selectSettings('science')}
+                                                />
+                                            </animated.div>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                        </Col>
                     </Row>
                 </Col>
             </Row>

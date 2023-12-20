@@ -36,7 +36,7 @@ const GameObjective = () => {
             <Row>
                 <Col className='text-center text-white fs-1 p-3 fw-bold shadow-lg'>Welcome to DiceQuizz Trivia</Col>
             </Row>
-            <Row fluid className='bg-white rounded p-5 m-3'>
+            <Row className='bg-white rounded p-5 m-3'>
                 <Col>
                     <Row>
                         <Col className='m-1'>
