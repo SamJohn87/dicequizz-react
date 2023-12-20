@@ -7,8 +7,8 @@ const PlayersList = () => {
     const [gameState] = useContext(gameContext);
 
     return (
-        <Row className='rounded bg-white mt-2 mx-1 h-100'>
-            <Col className='text-center h2 col-12 mb-3'>
+        <Row className='rounded bg-white mx-1 mt-2 h-100'>
+            <Col sm={12} className='text-center h2 mb-3'>
                 Players
             </Col>
             <Col className='h-100'>

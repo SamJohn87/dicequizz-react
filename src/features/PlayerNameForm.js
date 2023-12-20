@@ -30,7 +30,7 @@ const PlayerNameForm = () => {
         <Row className='justify-content-md-center' style={{ height: '450px' }}>
             <Col className='m-4 rounded bg-light bg-opacity-15 shadow ' style={{ border: '2px dotted #9A93C6', height: '350px' }}>
                 <Row className='h3 h-100'>
-                    <Col sm={12} className='mt-auto mb-2 pe-3'>Who is playing?</Col>
+                    <Col sm={12} className='mt-auto pe-3'>Who is playing?</Col>
                     <Col sm={12} style={{height: '40%'}}>
                         <form onSubmit={handleSubmit}>
                             <br />
@@ -53,7 +53,6 @@ const PlayerNameForm = () => {
                 </Row>
             </Col>
         </Row>
-
     );
 };
 

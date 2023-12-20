@@ -103,17 +103,17 @@ const GameBoard = () => {
                 </ModalFooter>
             </Modal>
             <Row style={{ height: '600px' }}>
-                <Col sm={3}>
+                <Col sm={3} className='h-100 mt-2'>
                     <PlayersList />
                 </Col>
-                <Col sm={9} >
+                <Col sm={9}>
                     <Row >
-                        <Col className='fw-bold text-white fs-1 p-3 text-center col-12'>
+                        <Col sm={12} className='fw-bold text-white fs-1 p-3 text-center'>
                             DiceQuizz Trivia
                         </Col>
-                        <Col className='bg-white rounded text-center me-3'>
-                            <Row>
-                                <Col sm={12}>
+                        <Col className='rounded text-center me-3'>
+                            <Row className='bg-white rounded' style={{height: '96%'}}>
+                                <Col sm={12} className='h-75'>
                                     {!gameState.gameStarted &&
                                         <PlayerNameForm />
                                     }
