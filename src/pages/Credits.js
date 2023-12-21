@@ -82,7 +82,7 @@ const Credits = () => {
                 key={item.src}
                 className='bg-dark text-center'
             >
-                <a href={item.link} target='_blank' rel='noreferrer'><img src={item.src} alt={item.altText} style={{ height: '500px' }} /></a>
+                <a href={item.link} target='_blank' rel='noreferrer'><img src={item.src} alt={item.altText} style={{maxWidth: '100%', height: '400px'}} /></a>
                 <CarouselCaption
                     captionText={item.caption}
                 />

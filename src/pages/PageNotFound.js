@@ -3,13 +3,12 @@ import Pagenotfound from '../assets/images/kostiantyn-li-Fi_nhg5itCw-unsplash.jp
 
 const PageNotFound = () => {
     return (
-        <Container fluid className='bg-white' style={{ height: '100vh' }}>
+        <Container fluid className='bg-white'>
             <Row>
-                <Col className='text-center'>
+                <Col>
                     <img
                         src={Pagenotfound}
                         alt='Page Not Found'
-                        width='50%'
                     />
                 </Col>
             </Row>
