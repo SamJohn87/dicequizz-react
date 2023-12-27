@@ -1,14 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { Row, Col } from "reactstrap";
-import { useContext } from "react";
-import { gameContext } from "./gameState";
+import React, { useState, useEffect } from 'react';
+import { Row, Col } from 'reactstrap';
+import { useContext } from 'react';
+import { gameContext } from './gameState';
+import useSound from 'use-sound';
+import endTimer from '../assets/sounds/copper-bell-ding-3-172687.mp3';
 
-const Timer = () => {
+const Timer = ({ stop }) => {
     const [secondsLeft, setSecondsLeft] = useState(0);
     const [gameState] = useContext(gameContext);
+    const [playEndTimer] = useSound(endTimer);
 
     useEffect(() => {
-        if (secondsLeft === 0) return;
+        if (secondsLeft === 0) {
+            
+            stop();
+            playEndTimer();
+            return;
+        }
 
         const timeOut = setTimeout(() => {
             setSecondsLeft(secondsLeft - 1);
@@ -24,7 +32,7 @@ const Timer = () => {
 
     return (
         <Row>
-            <Col className="fs-5 fw-bold">Timer: {secondsLeft}</Col>
+            <Col className='fs-5 fw-bold'>Timer: {secondsLeft}</Col>
         </Row>
     );
 };

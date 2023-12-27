@@ -112,7 +112,7 @@ const GameBoard = () => {
                             DiceQuizz Trivia
                         </Col>
                         <Col className='rounded text-center me-3'>
-                            <Row className='bg-white rounded' style={{height: '96%'}}>
+                            <Row className='bg-white rounded' style={{ height: '96%' }}>
                                 <Col sm={12} className='h-75'>
                                     {!gameState.gameStarted &&
                                         <PlayerNameForm />

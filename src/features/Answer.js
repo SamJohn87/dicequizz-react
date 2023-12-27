@@ -1,8 +1,11 @@
 import { useContext } from 'react';
 import { gameContext } from './gameState';
 import { Row, Col } from 'reactstrap';
+import useSound from 'use-sound';
 import whoopsBtn from '../assets/images/button_whoops.png';
 import OnTimeBtn from '../assets/images/button_right-and-on-time.png';
+import rightAnswerSound from '../assets/sounds/mixkit-correct-answer-tone-2870.wav';
+import wrongAnswerSound from '../assets/sounds/mixkit-wrong-answer-fail-notification-946.wav';
 
 const Answer = () => {
     const [gameState, dispatch] = useContext(gameContext);
@@ -10,8 +13,14 @@ const Answer = () => {
     //player object isPlaying property is true
     const isPlaying = gameState.listPlayers.find((player) => player.isPlaying === true).id;
     const nextPlayerId = isPlaying + 1;
+    const [playRightAnswerSound] = useSound(rightAnswerSound);
+    const [playWrongAnswerSound] = useSound(wrongAnswerSound);
 
-    function nextPlayer() {
+
+    function nextPlayer(answerType) {
+
+        if( answerType == 'wrongAnswer' ) playWrongAnswerSound();
+
         dispatch({
             type: 'NEXT_QUESTION'
         });
@@ -30,12 +39,14 @@ const Answer = () => {
     }
 
     function addPoints() {
+        playRightAnswerSound();
+
         dispatch({
             type: 'ADD_POINTS',
             payload: isPlaying
         });
 
-        nextPlayer();
+        nextPlayer('rightAnswer');
     }
 
     return (
@@ -55,7 +66,7 @@ const Answer = () => {
                             src={whoopsBtn}
                             alt='Wrong Answer or Not On Time'
                             role='button'
-                            onClick={nextPlayer}
+                            onClick={() => nextPlayer('wrongAnswer')}
                             className='btn-custom'
                         />
                     </Col>

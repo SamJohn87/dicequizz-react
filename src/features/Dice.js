@@ -1,23 +1,27 @@
-import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { gameContext } from "./gameState";
-import { Row, Col } from "reactstrap";
-import Die from "../components/Die";
-import Timer from "./Timer";
-import Question from "./Question";
+import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { gameContext } from './gameState';
+import { Row, Col } from 'reactstrap';
+import useSound from 'use-sound';
+import Die from '../components/Die';
+import Timer from './Timer';
+import Question from './Question';
 import rollDiceBtn from '../assets/images/button_roll-dice.png';
+import timerSoundEffect from '../assets/sounds/mixkit-game-show-suspense-waiting-667.wav';
 
 const Dice = () => {
     const [gameState, dispatch] = useContext(gameContext);
     const [rollBtnOn, setRollBtnOn] = useState(true);
-    const [rolling, setRolling] = useState(false)
+    const [rolling, setRolling] = useState(false);
     const navigate = useNavigate();
+    const [playTimerSoundEffect, { stop }] = useSound(timerSoundEffect);
 
     const rollDice = () => {
         const face1 = Math.floor(Math.random() * 6) + 1;
         const face2 = Math.floor(Math.random() * 6) + 1;
         setRollBtnOn(false);
         setRolling(true);
+        playTimerSoundEffect();
 
         setTimeout(() => {
             // Set rolling to false again when time over 
@@ -69,7 +73,7 @@ const Dice = () => {
                 } 
             </Col>
             <Col sm={4} className='align-self-center mt-4'>
-                <Timer timerValue={gameState.timer} />
+                <Timer stop={stop} />
             </Col>
             <Col sm={12} className='h-75 mt-5'>
                 {gameState.dice.length > 0 &&
