@@ -1,5 +1,5 @@
-import { Col, Row } from "reactstrap";
-import { useSpring, animated } from "@react-spring/web";
+import { Col, Row } from 'reactstrap';
+import { useSpring, animated } from '@react-spring/web';
 
 const Player = ({ player }) => {
     //set player box style based on who's playing
