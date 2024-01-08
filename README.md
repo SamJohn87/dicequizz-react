@@ -4,6 +4,9 @@ Introducing "DiceQuizz Trivia" — a unique and entertaining original game desig
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Technologies:
+**React** | **React Router** | **React Bootstrap** | **React Spring** | **Use-Sound**
+
 ## Where to play?
 
 [https://dicequizztrivia.web.app/](https://dicequizztrivia.web.app/)
