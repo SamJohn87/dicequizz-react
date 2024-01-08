@@ -18,3 +18,4 @@ Feel free to explore my [personal website](https://samjohn87.github.io/) to lear
 ## Visuals
 
 ![Alt text](/public/dicequizz_mainpage.png)
+![Alt text](public/dicetrivia_ingame_answer.png)
